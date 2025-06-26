@@ -7,6 +7,13 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
 import { Mail, Phone, Linkedin, ExternalLink, Menu, X, Award, Code, Shield, Zap } from "lucide-react"
+import { 
+  SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiJavascript, SiHtml5,
+  SiNodedotjs, SiExpress, SiPython, SiDjango, SiFlask, SiGo,
+  SiMongodb, SiPostgresql, SiAmazon, SiGooglecloud, SiSupabase, SiFirebase,
+  SiEthereum, SiSolidity, SiWeb3Dotjs, SiIpfs,
+  SiGit, SiDocker, SiGithub, SiVercel, SiNetlify
+} from 'react-icons/si'
 
 export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -33,7 +40,7 @@ export default function Portfolio() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "projects", "achievements", "contact"]
+      const sections = ["home", "about", "technologies", "projects", "achievements", "contact"]
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -65,6 +72,7 @@ export default function Portfolio() {
   const navItems = [
     { id: "home", label: "Home" },
     { id: "about", label: "About" },
+    { id: "technologies", label: "Technologies" },
     { id: "projects", label: "Projects" },
     { id: "achievements", label: "Achievements" },
     { id: "contact", label: "Contact" },
@@ -287,6 +295,300 @@ export default function Portfolio() {
               </p>
             </CardContent>
           </Card>
+        </div>
+      </section>
+
+      {/* Technologies Section */}
+      <section id="technologies" className="relative py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-l from-gray-900 to-black z-10">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12 animate-fade-in-up">
+            <h2 className="text-4xl font-bold mb-4 text-white">Technologies & Skills</h2>
+            <div className="w-20 h-1 bg-white mx-auto animate-expand"></div>
+          </div>
+          
+          <div className="space-y-12">
+            {/* Frontend Technologies */}
+            <div className="animate-card-slide-up">
+              <h3 className="text-2xl font-semibold mb-6 text-white text-center">Frontend Development</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                <div className="group bg-black/50 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:border-white/40 hover:bg-black/70 transition-all duration-300 hover:-translate-y-2">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-[#61DAFB]/20 rounded-lg flex items-center justify-center group-hover:bg-[#61DAFB]/30 transition-colors">
+                      <SiReact className="text-[#61DAFB] text-2xl group-hover:animate-spin" />
+                    </div>
+                    <h4 className="text-white font-medium">React</h4>
+                  </div>
+                </div>
+
+                <div className="group bg-black/50 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:border-white/40 hover:bg-black/70 transition-all duration-300 hover:-translate-y-2">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-black/40 rounded-lg flex items-center justify-center group-hover:bg-black/60 transition-colors border border-white/20">
+                      <SiNextdotjs className="text-white text-2xl group-hover:animate-pulse" />
+                    </div>
+                    <h4 className="text-white font-medium">Next.js</h4>
+                  </div>
+                </div>
+
+                <div className="group bg-black/50 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:border-white/40 hover:bg-black/70 transition-all duration-300 hover:-translate-y-2">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-[#3178C6]/20 rounded-lg flex items-center justify-center group-hover:bg-[#3178C6]/30 transition-colors">
+                      <SiTypescript className="text-[#3178C6] text-2xl group-hover:animate-bounce" />
+                    </div>
+                    <h4 className="text-white font-medium">TypeScript</h4>
+                  </div>
+                </div>
+
+                <div className="group bg-black/50 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:border-white/40 hover:bg-black/70 transition-all duration-300 hover:-translate-y-2">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-[#06B6D4]/20 rounded-lg flex items-center justify-center group-hover:bg-[#06B6D4]/30 transition-colors">
+                      <SiTailwindcss className="text-[#06B6D4] text-2xl group-hover:animate-pulse" />
+                    </div>
+                    <h4 className="text-white font-medium">Tailwind</h4>
+                  </div>
+                </div>
+
+                <div className="group bg-black/50 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:border-white/40 hover:bg-black/70 transition-all duration-300 hover:-translate-y-2">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-[#F7DF1E]/20 rounded-lg flex items-center justify-center group-hover:bg-[#F7DF1E]/30 transition-colors">
+                      <SiJavascript className="text-[#F7DF1E] text-2xl group-hover:animate-bounce" />
+                    </div>
+                    <h4 className="text-white font-medium">JavaScript</h4>
+                  </div>
+                </div>
+
+                <div className="group bg-black/50 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:border-white/40 hover:bg-black/70 transition-all duration-300 hover:-translate-y-2">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-[#E34F26]/20 rounded-lg flex items-center justify-center group-hover:bg-[#E34F26]/30 transition-colors">
+                      <SiHtml5 className="text-[#E34F26] text-2xl group-hover:animate-pulse" />
+                    </div>
+                    <h4 className="text-white font-medium">HTML5</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Backend Technologies */}
+            <div className="animate-card-slide-up-delay-1">
+              <h3 className="text-2xl font-semibold mb-6 text-white text-center">Backend Development</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                <div className="group bg-black/50 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:border-white/40 hover:bg-black/70 transition-all duration-300 hover:-translate-y-2">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-[#339933]/20 rounded-lg flex items-center justify-center group-hover:bg-[#339933]/30 transition-colors">
+                      <SiNodedotjs className="text-[#339933] text-2xl group-hover:animate-spin" />
+                    </div>
+                    <h4 className="text-white font-medium">Node.js</h4>
+                  </div>
+                </div>
+
+                <div className="group bg-black/50 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:border-white/40 hover:bg-black/70 transition-all duration-300 hover:-translate-y-2">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-[#000000]/40 rounded-lg flex items-center justify-center group-hover:bg-[#000000]/60 transition-colors border border-white/20">
+                      <SiExpress className="text-white text-2xl group-hover:animate-pulse" />
+                    </div>
+                    <h4 className="text-white font-medium">Express.js</h4>
+                  </div>
+                </div>
+
+                <div className="group bg-black/50 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:border-white/40 hover:bg-black/70 transition-all duration-300 hover:-translate-y-2">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-[#3776AB]/20 rounded-lg flex items-center justify-center group-hover:bg-[#3776AB]/30 transition-colors">
+                      <SiPython className="text-[#3776AB] text-2xl group-hover:animate-bounce" />
+                    </div>
+                    <h4 className="text-white font-medium">Python</h4>
+                  </div>
+                </div>
+
+                <div className="group bg-black/50 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:border-white/40 hover:bg-black/70 transition-all duration-300 hover:-translate-y-2">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-[#092E20]/40 rounded-lg flex items-center justify-center group-hover:bg-[#092E20]/60 transition-colors border border-white/20">
+                      <SiDjango className="text-[#0FA54A] text-2xl group-hover:animate-pulse" />
+                    </div>
+                    <h4 className="text-white font-medium">Django</h4>
+                  </div>
+                </div>
+
+                <div className="group bg-black/50 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:border-white/40 hover:bg-black/70 transition-all duration-300 hover:-translate-y-2">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-[#000000]/40 rounded-lg flex items-center justify-center group-hover:bg-[#000000]/60 transition-colors border border-white/20">
+                      <SiFlask className="text-white text-2xl group-hover:animate-bounce" />
+                    </div>
+                    <h4 className="text-white font-medium">Flask</h4>
+                  </div>
+                </div>
+
+                <div className="group bg-black/50 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:border-white/40 hover:bg-black/70 transition-all duration-300 hover:-translate-y-2">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-[#00ADD8]/20 rounded-lg flex items-center justify-center group-hover:bg-[#00ADD8]/30 transition-colors">
+                      <SiGo className="text-[#00ADD8] text-2xl group-hover:animate-pulse" />
+                    </div>
+                    <h4 className="text-white font-medium">Golang</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Database & Cloud */}
+            <div className="animate-card-slide-up-delay-2">
+              <h3 className="text-2xl font-semibold mb-6 text-white text-center">Database & Cloud</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                <div className="group bg-black/50 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:border-white/40 hover:bg-black/70 transition-all duration-300 hover:-translate-y-2">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-[#47A248]/20 rounded-lg flex items-center justify-center group-hover:bg-[#47A248]/30 transition-colors">
+                      <SiMongodb className="text-[#47A248] text-2xl group-hover:animate-bounce" />
+                    </div>
+                    <h4 className="text-white font-medium">MongoDB</h4>
+                  </div>
+                </div>
+
+                <div className="group bg-black/50 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:border-white/40 hover:bg-black/70 transition-all duration-300 hover:-translate-y-2">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-[#336791]/20 rounded-lg flex items-center justify-center group-hover:bg-[#336791]/30 transition-colors">
+                      <SiPostgresql className="text-[#336791] text-2xl group-hover:animate-spin" />
+                    </div>
+                    <h4 className="text-white font-medium">PostgreSQL</h4>
+                  </div>
+                </div>
+
+                <div className="group bg-black/50 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:border-white/40 hover:bg-black/70 transition-all duration-300 hover:-translate-y-2">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-[#FF9900]/20 rounded-lg flex items-center justify-center group-hover:bg-[#FF9900]/30 transition-colors">
+                      <SiAmazon className="text-[#FF9900] text-2xl group-hover:animate-pulse" />
+                    </div>
+                    <h4 className="text-white font-medium">AWS</h4>
+                  </div>
+                </div>
+
+                <div className="group bg-black/50 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:border-white/40 hover:bg-black/70 transition-all duration-300 hover:-translate-y-2">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-[#4285F4]/20 rounded-lg flex items-center justify-center group-hover:bg-[#4285F4]/30 transition-colors">
+                      <SiGooglecloud className="text-[#4285F4] text-2xl group-hover:animate-bounce" />
+                    </div>
+                    <h4 className="text-white font-medium">Google Cloud</h4>
+                  </div>
+                </div>
+
+                <div className="group bg-black/50 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:border-white/40 hover:bg-black/70 transition-all duration-300 hover:-translate-y-2">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-[#003545]/40 rounded-lg flex items-center justify-center group-hover:bg-[#003545]/60 transition-colors border border-white/20">
+                      <SiSupabase className="text-[#00C7B7] text-2xl group-hover:animate-pulse" />
+                    </div>
+                    <h4 className="text-white font-medium">Supabase</h4>
+                  </div>
+                </div>
+
+                <div className="group bg-black/50 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:border-white/40 hover:bg-black/70 transition-all duration-300 hover:-translate-y-2">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-[#FFCA28]/20 rounded-lg flex items-center justify-center group-hover:bg-[#FFCA28]/30 transition-colors">
+                      <SiFirebase className="text-[#FFCA28] text-2xl group-hover:animate-bounce" />
+                    </div>
+                    <h4 className="text-white font-medium">Firebase</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Blockchain & Web3 */}
+            <div className="animate-card-slide-up-delay-2">
+              <h3 className="text-2xl font-semibold mb-6 text-white text-center">Blockchain & Web3</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6">
+                <div className="group bg-black/50 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:border-white/40 hover:bg-black/70 transition-all duration-300 hover:-translate-y-2">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-[#627EEA]/20 rounded-lg flex items-center justify-center group-hover:bg-[#627EEA]/30 transition-colors">
+                      <SiEthereum className="text-[#627EEA] text-2xl group-hover:animate-spin" />
+                    </div>
+                    <h4 className="text-white font-medium">Ethereum</h4>
+                  </div>
+                </div>
+
+                <div className="group bg-black/50 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:border-white/40 hover:bg-black/70 transition-all duration-300 hover:-translate-y-2">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-[#1E1E3F]/40 rounded-lg flex items-center justify-center group-hover:bg-[#1E1E3F]/60 transition-colors border border-white/20">
+                      <SiSolidity className="text-white text-2xl group-hover:animate-pulse" />
+                    </div>
+                    <h4 className="text-white font-medium">Solidity</h4>
+                  </div>
+                </div>
+
+                <div className="group bg-black/50 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:border-white/40 hover:bg-black/70 transition-all duration-300 hover:-translate-y-2">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-[#F16822]/20 rounded-lg flex items-center justify-center group-hover:bg-[#F16822]/30 transition-colors">
+                      <SiWeb3Dotjs className="text-[#F16822] text-2xl group-hover:animate-bounce" />
+                    </div>
+                    <h4 className="text-white font-medium">Web3.js</h4>
+                  </div>
+                </div>
+
+                <div className="group bg-black/50 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:border-white/40 hover:bg-black/70 transition-all duration-300 hover:-translate-y-2">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-[#65C2CB]/20 rounded-lg flex items-center justify-center group-hover:bg-[#65C2CB]/30 transition-colors">
+                      <SiIpfs className="text-[#65C2CB] text-2xl group-hover:animate-bounce" />
+                    </div>
+                    <h4 className="text-white font-medium">IPFS</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Tools & DevOps */}
+            <div className="animate-card-slide-up-delay-2">
+              <h3 className="text-2xl font-semibold mb-6 text-white text-center">Tools & DevOps</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                <div className="group bg-black/50 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:border-white/40 hover:bg-black/70 transition-all duration-300 hover:-translate-y-2">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-[#F05032]/20 rounded-lg flex items-center justify-center group-hover:bg-[#F05032]/30 transition-colors">
+                      <SiGit className="text-[#F05032] text-2xl group-hover:animate-spin" />
+                    </div>
+                    <h4 className="text-white font-medium">Git</h4>
+                  </div>
+                </div>
+
+                <div className="group bg-black/50 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:border-white/40 hover:bg-black/70 transition-all duration-300 hover:-translate-y-2">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-[#2496ED]/20 rounded-lg flex items-center justify-center group-hover:bg-[#2496ED]/30 transition-colors">
+                      <SiDocker className="text-[#2496ED] text-2xl group-hover:animate-bounce" />
+                    </div>
+                    <h4 className="text-white font-medium">Docker</h4>
+                  </div>
+                </div>
+
+                <div className="group bg-black/50 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:border-white/40 hover:bg-black/70 transition-all duration-300 hover:-translate-y-2">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-[#181717]/40 rounded-lg flex items-center justify-center group-hover:bg-[#181717]/60 transition-colors border border-white/20">
+                      <SiGithub className="text-white text-2xl group-hover:animate-pulse" />
+                    </div>
+                    <h4 className="text-white font-medium">GitHub</h4>
+                  </div>
+                </div>
+
+                {/* <div className="group bg-black/50 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:border-white/40 hover:bg-black/70 transition-all duration-300 hover:-translate-y-2">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-[#007ACC]/20 rounded-lg flex items-center justify-center group-hover:bg-[#007ACC]/30 transition-colors">
+                      <SiVisualstudiocode className="text-[#007ACC] text-2xl group-hover:animate-bounce" />
+                    </div>
+                    <h4 className="text-white font-medium">VS Code</h4>
+                  </div>
+                </div> */}
+
+                <div className="group bg-black/50 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:border-white/40 hover:bg-black/70 transition-all duration-300 hover:-translate-y-2">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-[#000000]/40 rounded-lg flex items-center justify-center group-hover:bg-[#000000]/60 transition-colors border border-white/20">
+                      <SiVercel className="text-white text-2xl group-hover:animate-pulse" />
+                    </div>
+                    <h4 className="text-white font-medium">Vercel</h4>
+                  </div>
+                </div>
+
+                <div className="group bg-black/50 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:border-white/40 hover:bg-black/70 transition-all duration-300 hover:-translate-y-2">
+                  <div className="text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-[#00AD9F]/20 rounded-lg flex items-center justify-center group-hover:bg-[#00AD9F]/30 transition-colors">
+                      <SiNetlify className="text-[#00AD9F] text-2xl group-hover:animate-bounce" />
+                    </div>
+                    <h4 className="text-white font-medium">Netlify</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
