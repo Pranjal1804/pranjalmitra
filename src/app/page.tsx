@@ -12,6 +12,15 @@ export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("home")
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    subject: '',
+    message: ''
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState('')
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -61,6 +70,51 @@ export default function Portfolio() {
     { id: "contact", label: "Contact" },
   ]
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus('')
+
+    try {
+      const response = await fetch('https://formspree.io/f/mwpbwjre', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: `${formData.firstName} ${formData.lastName}`,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      })
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          subject: '',
+          message: ''
+        })
+      } else {
+        setSubmitStatus('error')
+      }
+    } catch (error) {
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
       {/* Animated Background */}
@@ -82,7 +136,9 @@ export default function Portfolio() {
       <nav className="fixed top-0 left-0 right-0 bg-black/90 backdrop-blur-md border-b border-white/10 z-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="font-bold text-xl text-white animate-glow">PM</div>
+            <div className="logo-font text-2xl hover:scale-105 transition-transform duration-300 cursor-pointer">
+              Pranjal Mitra
+            </div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
@@ -496,48 +552,87 @@ export default function Portfolio() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-sm font-medium mb-2 block text-white">First Name</label>
+                      <Input
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleInputChange}
+                        placeholder="Pranjal"
+                        required
+                        className="bg-black/50 border-white/20 text-white placeholder:text-gray-500 focus:border-white"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-sm font-medium mb-2 block text-white">Last Name</label>
+                      <Input
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleInputChange}
+                        placeholder="Mitra"
+                        required
+                        className="bg-black/50 border-white/20 text-white placeholder:text-gray-500 focus:border-white"
+                      />
+                    </div>
+                  </div>
                   <div>
-                    <label className="text-sm font-medium mb-2 block text-white">First Name</label>
+                    <label className="text-sm font-medium mb-2 block text-white">Email</label>
                     <Input
-                      placeholder="John"
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="abc@gmail.com"
+                      required
                       className="bg-black/50 border-white/20 text-white placeholder:text-gray-500 focus:border-white"
                     />
                   </div>
                   <div>
-                    <label className="text-sm font-medium mb-2 block text-white">Last Name</label>
+                    <label className="text-sm font-medium mb-2 block text-white">Subject</label>
                     <Input
-                      placeholder="Doe"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      placeholder="Project Collaboration"
+                      required
                       className="bg-black/50 border-white/20 text-white placeholder:text-gray-500 focus:border-white"
                     />
                   </div>
-                </div>
-                <div>
-                  <label className="text-sm font-medium mb-2 block text-white">Email</label>
-                  <Input
-                    type="email"
-                    placeholder="john@example.com"
-                    className="bg-black/50 border-white/20 text-white placeholder:text-gray-500 focus:border-white"
-                  />
-                </div>
-                <div>
-                  <label className="text-sm font-medium mb-2 block text-white">Subject</label>
-                  <Input
-                    placeholder="Project Collaboration"
-                    className="bg-black/50 border-white/20 text-white placeholder:text-gray-500 focus:border-white"
-                  />
-                </div>
-                <div>
-                  <label className="text-sm font-medium mb-2 block text-white">Message</label>
-                  <Textarea
-                    placeholder="Your message here..."
-                    rows={4}
-                    className="bg-black/50 border-white/20 text-white placeholder:text-gray-500 focus:border-white"
-                  />
-                </div>
-                <Button className="w-full bg-white text-black hover:bg-gray-200 hover:scale-105 transition-all duration-300 animate-pulse-button">
-                  Send Message
-                </Button>
+                  <div>
+                    <label className="text-sm font-medium mb-2 block text-white">Message</label>
+                    <Textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      placeholder="Your message here..."
+                      rows={4}
+                      required
+                      className="bg-black/50 border-white/20 text-white placeholder:text-gray-500 focus:border-white"
+                    />
+                  </div>
+                  
+                  {submitStatus === 'success' && (
+                    <div className="text-green-400 text-sm p-3 bg-green-400/10 rounded-md border border-green-400/20">
+                      Message sent successfully! I'll get back to you soon.
+                    </div>
+                  )}
+                  
+                  {submitStatus === 'error' && (
+                    <div className="text-red-400 text-sm p-3 bg-red-400/10 rounded-md border border-red-400/20">
+                      Something went wrong. Please try again or contact me directly.
+                    </div>
+                  )}
+                  
+                  <Button 
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-white text-black hover:bg-gray-200 hover:scale-105 transition-all duration-300 animate-pulse-button disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                  </Button>
+                </form>
               </CardContent>
             </Card>
           </div>
