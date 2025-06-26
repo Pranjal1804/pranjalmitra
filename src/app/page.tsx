@@ -532,7 +532,7 @@ export default function Portfolio() {
                   <div className="flex items-center gap-4 group hover:translate-x-2 transition-transform duration-300">
                     <ExternalLink className="w-5 h-5 text-white group-hover:animate-pulse" />
                     <a
-                      href="pranjalmitra.netlify.app"
+                      href="https://pranjalmitra.netlify.app/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-400 hover:text-white transition-colors"
